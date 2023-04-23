@@ -1,0 +1,69 @@
+Implementation of Classification algorithm in R
+
+rainfall <-c(799,1174.8,865.1,1334.6,635.4,918.5,685.5,998.6,784.2,985,882.8,1071) 
+rainfall.timeseries <- ts(rainfall,start = c(2022,1),frequency = 12) 
+print(rainfall.timeseries) 
+png(file = "rainfall.png") 
+plot(rainfall.timeseries) 
+dev.off()
+
+
+Data Analysis using Time Series Analysis
+
+rainfall <-c(799,1174.8,865.1,1334.6,635.4,918.5,685.5,998.6,784.2,985,882.8,1071)
+rainfall.timeseries <- ts(rainfall,start = c(2012,1),frequency = 12)
+print(rainfall.timeseries)
+png(file = "rainfall.png")
+plot(rainfall.timeseries)
+dev.off()
+
+
+Implementation Decision Tree using R
+
+library(party) 
+print(head(readingSkills)) 
+library(party) 
+input.dat <- readingSkills[c(1:105),] 
+png(file = "decision_tree.png") 
+output.tree <- ctree(nativeSpeaker ~ age + shoeSize + score,data = input.dat)
+plot (output.tree) 
+dev.off() 
+
+
+k-means clustering using R
+
+newiris <- iris 
+newiris$Species<- NULL 
+(kc <- kmeans(newiris,3))
+table(iris$Species,kc$cluster)
+plot(newiris[c("Sepal.Length","Sepal.Width")],col=kc$cluster) 
+points(kc$centers[,c("Sepal.Length","Sepal.Width")],col=1:3,pch=8,cex=2)
+
+
+Prediction Using Linear Regression Create Relationship
+x <- c(151, 174, 138, 186, 128, 136, 179, 163, 152, 131) 
+y <- c(63, 81, 56, 91, 47, 57, 76, 72, 62, 48) 
+relation <- lm(y~x) 
+print(relation)
+
+#Summary Relationship
+x <- c(151, 174, 138, 186, 128, 136, 179, 163, 152, 131) 
+y <- c(63, 81, 56, 91, 47, 57, 76, 72, 62, 48) 
+relation <- lm(y~x) 
+print(summary(relation))
+
+#Predict weight
+x <- c(151, 174, 138, 186, 128, 136, 179, 163, 152, 131) 
+y <- c(63, 81, 56, 91, 47, 57, 76, 72, 62, 48) 
+relation <- lm(y~x) 
+a <- data.frame(x = 170) 
+result <- predict(relation,a) 
+print(result) 
+
+#Visualize Regression Graphicall
+x <- c(151, 174, 138, 186, 128, 136, 179, 163, 152, 131) 
+y <- c(63, 81, 56, 91, 47, 57, 76, 72, 62, 48) 
+relation <- lm(y~x) 
+png(file="linearregression.png") 
+plot(y,x,col = "blue",main = "Height & Weight Regression",abline(lm(x~y)),cex = 1.3,pch = 16,xlab = "Weight in Kg",ylab = "Height in cm") 
+dev.off() 
